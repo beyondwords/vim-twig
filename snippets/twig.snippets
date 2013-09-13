@@ -35,11 +35,11 @@ snippet set "set"
 {% set ${1:var} = ${2:value} %}${3}
 endsnippet
 # Print variable
-snippet }} "}}"
+snippet }} "}}" i
 {{ ${1} }}${2}
 endsnippet
 # Single Regular execution block
-snippet %% "%%"
+snippet %% "%%" i
 {% ${1} %}${2}
 endsnippet
 # Comment block
@@ -54,7 +54,7 @@ endsnippet
 snippet block "block"
 {% block ${1:name} %}${2}{% endblock %}
 endsnippet
-snippet f_date "f_date"
+snippet f_date "f_date" i
 {{ ${1:a_date}|date("${2:m/d/Y}") }}
 endsnippet
 
