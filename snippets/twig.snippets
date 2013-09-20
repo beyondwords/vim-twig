@@ -66,3 +66,9 @@ endsnippet
 snippet import "import"
 {% import "${1:macrofile}" as ${2:import name} %}
 endsnippet
+
+snippet macro "macro"
+{% macro ${1:macroname}(${2:args}) %}
+${3}
+{% endmacro %}
+endsnippet
