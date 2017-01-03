@@ -5,7 +5,7 @@
 " Version:      1.0
 "
 " Based Jinja syntax by:	Armin Ronacher <armin.ronacher@active-4.com>
-" 
+"
 " Known Bugs:
 "   because of odd limitations dicts and the modulo operator
 "   appear wrong in the template.
@@ -57,8 +57,11 @@ syn region twigVarBlock matchgroup=twigVarDelim start=/{{-\?/ end=/-\?}}/ contai
 " Jinja template 'raw' tag
 syn region twigRaw matchgroup=twigRawDelim start="{%\s*raw\s*%}" end="{%\s*endraw\s*%}" containedin=ALLBUT,twigTagBlock,twigVarBlock,twigString,twigComment
 
+" Keywords to highlight within comments
+syn keyword twigTodo contained COMBAK TODO FIXME XXX
+
 " Jinja comments
-syn region twigComment matchgroup=twigCommentDelim start="{#" end="#}" containedin=ALLBUT,twigTagBlock,twigVarBlock,twigString
+syn region twigComment matchgroup=twigCommentDelim start="{#" end="#}" contains=twigTodo containedin=ALLBUT,twigTagBlock,twigVarBlock,twigString
 
 " Block start keywords.  A bit tricker.  We only highlight at the start of a
 " tag block and only if the name is not followed by a comma or equals sign
@@ -101,6 +104,7 @@ if version >= 508 || !exists("did_twig_syn_inits")
   HiLink twigString Constant
   HiLink twigNumber Constant
   HiLink twigComment Comment
+  HiLink twigTodo Todo
 
   delcommand HiLink
 endif
